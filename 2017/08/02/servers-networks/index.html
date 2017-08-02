@@ -101,7 +101,7 @@
 <meta property="og:description" content="主要目标只有一个IP可以上网，让整个服务器集群可以访问外网，每台服务器都可以独立上网。 现有条件 只有一根可以上内网的网线（该内网是高研院内网，可以上网） 一台交换机 4台高性能服务器，每台服务器有两个网口  主要网络架构设计 一台服务器为master节点 另外三台服务器分别为slave1,slave2,slave3 四台服务器安装的操作系统皆为unbuntu server  IP 分布 mast">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://otyvv2xli.bkt.clouddn.com/static/images/Servers.png">
-<meta property="og:updated_time" content="2017-08-01T18:44:09.000Z">
+<meta property="og:updated_time" content="2017-08-02T07:43:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="4台服务器集群网络配置">
 <meta name="twitter:description" content="主要目标只有一个IP可以上网，让整个服务器集群可以访问外网，每台服务器都可以独立上网。 现有条件 只有一根可以上内网的网线（该内网是高研院内网，可以上网） 一台交换机 4台高性能服务器，每台服务器有两个网口  主要网络架构设计 一台服务器为master节点 另外三台服务器分别为slave1,slave2,slave3 四台服务器安装的操作系统皆为unbuntu server  IP 分布 mast">
@@ -305,6 +305,17 @@
 
           
           
+             <span id="/2017/08/02/servers-networks/" class="leancloud_visitors" data-flag-title="4台服务器集群网络配置">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -347,7 +358,7 @@
 <p>网络配置文件修改完之后， /etc/init.d/network restart<br>或者 service network restart<br>如果重启之后还是不行，则重新启动服务器。<br>网络重新启动之后，执行ifconfig命令查看网口配置<br>这时，如果出现网口乱名的问题，即网口名字非eth0,eth1,eth2….<br>则执行如下配置<br>Edit /etc/default/grub and search for the following:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;&quot;</div><div class="line">GRUB_CMDLINE_LINUX=&quot;&quot;</div></pre></td></tr></table></figure></p>
 <p>Add biosdevname=0 to the 2 lines:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;biosdevname=0&quot;</div><div class="line">GRUB_CMDLINE_LINUX=&quot;biosdevname=0&quot;</div></pre></td></tr></table></figure></p>
 <p>The run<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo update-grub</div></pre></td></tr></table></figure></p>
-<p>配置结束之后，重启服务器， 然后查看 /etc/udev/rules.d/70-persistentnet.rules<br>有相关与网口的配置<br>具体请参考网页<a href="http://askubuntu.com/questions/578650/interface-device-name-em1-to-eth0-linux-14-04-lts" target="_blank" rel="external">http://askubuntu.com/questions/578650/interface-device-name-em1-to-eth0-linux-14-04-lts</a></p>
+<p>配置结束之后，重启服务器， 然后查看 /etc/udev/rules.d/70-persistentnet.rules<br>有相关与网口的配置<br>具体请参考<a href="http://askubuntu.com/questions/578650/interface-device-name-em1-to-eth0-linux-14-04-lts" target="_blank" rel="external">网页</a></p>
 <p>然后，需要配置数据转发机制。<br>master上的eth0与其他slave上的eth0都通过交换机形成了一个192.168.223.0网段的一个内网。内网中的服务器全部可以互相访问。现在只有一个eht1网口用于上网。需要建立转发路由规则：</p>
 <p>进入终端, 开启路由功能，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &quot;1&quot; &gt; /proc/sys/net/ipv4/ip_forward</div></pre></td></tr></table></figure></p>
 <p>这里echo时如果sudo权限不行，转入root权限操作</p>
@@ -377,14 +388,9 @@
 </li>
 </ol>
 <p>Ubuntu服务器出现以下情况：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">perl: warning: Setting locale failed.</div><div class="line">perl: warning: Please check that your locale settings:</div><div class="line">    LANGUAGE = (unset),</div><div class="line">    LC_ALL = (unset),</div><div class="line">    LC_MESSAGES = &quot;zh_CN.UTF-8&quot;,</div><div class="line">    LANG = &quot;zh_CN.UTF-8&quot;</div><div class="line">    are supported and installed on your system.</div><div class="line">perl: warning: Falling back to the standard locale (&quot;C&quot;).</div></pre></td></tr></table></figure></p>
-<ol>
-<li>安装 localepurge 管理语言文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install localepurge</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>安装 localepurge 管理语言文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install localepurge</div></pre></td></tr></table></figure></p>
 <p>选择我们想要的语言，例如 en_US.UTF-8 和 zh_CN.UTF-8</p>
-<ol>
-<li>也可以使用以下命令再次进行配置：</li>
-</ol>
+<p>也可以使用以下命令再次进行配置：</p>
 <p>生成自己想要的语言<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo locale-gen zh_CN.UTF-8 en_US.UTF-8</div></pre></td></tr></table></figure></p>
 <p>以下命令再次进行配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo dpkg-reconfigure localepurge</div></pre></td></tr></table></figure></p>
 
@@ -592,7 +598,9 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright" >
   
   &copy; 
   <span itemprop="copyrightYear">2017</span>
@@ -695,7 +703,7 @@
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
 
-
+	
   
 
 
@@ -737,6 +745,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("DS45WU6adM2p6P5plEGoIP4r-gzGzoHsz", "peSmNzQxVP0nYTf0i8ksw6x9");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
