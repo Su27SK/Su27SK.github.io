@@ -1,4 +1,4 @@
-http://www.paulsari.cn/servers-networks.html
-http://www.paulsari.cn/virtualHost.html
-http://www.paulsari.cn/hadoop-deploy.html
-http://www.paulsari.cn/hello-world.html
+http://www.paulsari.cn/2017/08/02/servers-networks/
+http://www.paulsari.cn/2017/08/02/virtualHost/
+http://www.paulsari.cn/2017/08/02/hadoop-deploy/
+http://www.paulsari.cn/2017/08/02/hello-world/
