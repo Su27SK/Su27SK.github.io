@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="PaulTong&#39;s Blog">
 <meta property="og:description" content="Ubuntu下的配置apache虚拟主机方案对其中的Master节点配置虚拟主机，可以通过Chrome浏览器访问目录。安装虚拟主机之前，先安装Apache21sudo apt-get install apache2 再安装php51sudo apt-get install php5 如果重新启动apache时出现以下问题:1apache2: Could not reliably determine">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-02T17:04:52.000Z">
+<meta property="og:updated_time" content="2017-08-02T19:08:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="配置虚拟主机">
 <meta name="twitter:description" content="Ubuntu下的配置apache虚拟主机方案对其中的Master节点配置虚拟主机，可以通过Chrome浏览器访问目录。安装虚拟主机之前，先安装Apache21sudo apt-get install apache2 再安装php51sudo apt-get install php5 如果重新启动apache时出现以下问题:1apache2: Could not reliably determine">
@@ -112,7 +112,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     motion: true,
@@ -332,9 +332,9 @@
       
 
       
-        <h2 id="Ubuntu下的配置apache虚拟主机方案"><a href="#Ubuntu下的配置apache虚拟主机方案" class="headerlink" title="Ubuntu下的配置apache虚拟主机方案"></a>Ubuntu下的配置apache虚拟主机方案</h2><p>对其中的Master节点配置虚拟主机，可以通过Chrome浏览器访问目录。<br>安装虚拟主机之前，先安装Apache2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install apache2</div></pre></td></tr></table></figure></p>
-<p>再安装php5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install php5</div></pre></td></tr></table></figure></p>
-<p>如果重新启动apache时出现以下问题:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apache2: Could not reliably determine the server&apos;s fully qualified domain name</div></pre></td></tr></table></figure></p>
+        <h2 id="Ubuntu下的配置apache虚拟主机方案"><a href="#Ubuntu下的配置apache虚拟主机方案" class="headerlink" title="Ubuntu下的配置apache虚拟主机方案"></a>Ubuntu下的配置apache虚拟主机方案</h2><p>对其中的Master节点配置虚拟主机，可以通过Chrome浏览器访问目录。<br>安装虚拟主机之前，先安装Apache2<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install apache2</div></pre></td></tr></table></figure></p>
+<p>再安装php5<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install php5</div></pre></td></tr></table></figure></p>
+<p>如果重新启动apache时出现以下问题:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apache2: Could not reliably determine the server<span class="string">'s fully qualified domain name</span></div></pre></td></tr></table></figure></p>
 <p>用以下方法解决：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1. Add ServerName localhost as the last line in /etc/apache2/apache2.conf file.</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">2. Create a file named /etc/apache2/conf-available/servername.conf and add the string ServerName localhost inside and save it. Create a soft link under /etc/apache2/conf-enabled as follows:</div><div class="line">ln -s /etc/apache2/conf-available/servername.conf .</div><div class="line">or</div><div class="line">a2enconf servername</div></pre></td></tr></table></figure>
 <p>然后，进入 /etc/apache2/sites-available文件夹，添加”<em>*</em>.conf”文件<br>往该文件里写入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;VirtualHost *:80&gt;</div><div class="line">	ServerName paul.sari.com</div><div class="line">	ServerAdmin paul@mail.sari.com</div><div class="line">	DocumentRoot &quot;/home/tonglin&quot;</div><div class="line">	&lt;Directory &quot;/home/tonglin&quot;&gt;</div><div class="line">		Options Indexes</div><div class="line">		AllowOverride all </div><div class="line">		Order allow,deny</div><div class="line">		IndexOptions Charset=UTF-8</div><div class="line">		Allow from all</div><div class="line">		Require all granted</div><div class="line">	&lt;/Directory&gt;</div><div class="line">	&lt;ifModule dir_module&gt;</div><div class="line">		DirectoryIndex index.html</div><div class="line">	&lt;/ifModule&gt;</div><div class="line">	ErrorLog $&#123;APACHE_LOG_DIR&#125;/paul_errors.log</div><div class="line">	CustomLog $&#123;APACHE_LOG_DIR&#125;/paul_access.log combined</div><div class="line">&lt;/VirtualHost&gt;</div></pre></td></tr></table></figure></p>
@@ -579,7 +579,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
