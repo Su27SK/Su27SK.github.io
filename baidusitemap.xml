@@ -4,13 +4,17 @@
 
     
   <url>
-    <loc>http://www.paulsari.cn/2017/08/02/servers-networks/</loc>
-    <lastmod>2017-08-02T07:43:39.000Z</lastmod>
+    <loc>http://www.paulsari.cn/2017/08/01/hadoop-deploy/</loc>
+    <lastmod>2017-08-02T16:32:51.000Z</lastmod>
     <data>
         <display>
-        <title>4台服务器集群网络配置</title>
-        <pubTime>2017-08-01T18:44:09.000Z</pubTime>
+        <title>配置Hadoop分布式集群</title>
+        <pubTime>2017-08-01T10:00:00.000Z</pubTime>
         
+        <tag>BigData</tag>
+         
+        <tag>Hadoop</tag>
+         
          
            
         </display>
@@ -19,17 +23,13 @@
 
     
   <url>
-    <loc>http://www.paulsari.cn/2017/08/02/hadoop-deploy/</loc>
-    <lastmod>2017-08-01T19:20:05.000Z</lastmod>
+    <loc>http://www.paulsari.cn/2017/08/02/servers-networks/</loc>
+    <lastmod>2017-08-02T07:43:39.000Z</lastmod>
     <data>
         <display>
-        <title>配置Hadoop分布式集群</title>
-        <pubTime>2017-08-01T17:23:13.000Z</pubTime>
+        <title>4台服务器集群网络配置</title>
+        <pubTime>2017-08-01T18:44:09.000Z</pubTime>
         
-        <tag>BigData</tag>
-         
-        <tag>Hadoop</tag>
-         
          
            
         </display>
