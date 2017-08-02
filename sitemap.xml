@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.paulsari.cn/2017/08/02/servers-networks/</loc>
+    
+    <lastmod>2017-08-02T18:38:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.paulsari.cn/2017/08/02/virtualHost/</loc>
     
     <lastmod>2017-08-02T17:04:52.000Z</lastmod>
@@ -9,16 +16,9 @@
   </url>
   
   <url>
-    <loc>http://www.paulsari.cn/2017/08/02/servers-networks/</loc>
-    
-    <lastmod>2017-08-02T17:04:42.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.paulsari.cn/2017/08/01/hadoop-deploy/</loc>
     
-    <lastmod>2017-08-02T16:39:08.000Z</lastmod>
+    <lastmod>2017-08-02T17:04:44.000Z</lastmod>
     
   </url>
   

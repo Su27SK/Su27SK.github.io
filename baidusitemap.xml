@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://www.paulsari.cn/2017/08/02/servers-networks/</loc>
+    <lastmod>2017-08-02T18:38:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>4台服务器集群网络配置</title>
+        <pubTime>2017-08-02T14:00:00.000Z</pubTime>
+        
+        <tag>Config</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.paulsari.cn/2017/08/02/virtualHost/</loc>
     <lastmod>2017-08-02T17:04:52.000Z</lastmod>
     <data>
@@ -21,25 +38,8 @@
 
     
   <url>
-    <loc>http://www.paulsari.cn/2017/08/02/servers-networks/</loc>
-    <lastmod>2017-08-02T17:04:42.000Z</lastmod>
-    <data>
-        <display>
-        <title>4台服务器集群网络配置</title>
-        <pubTime>2017-08-02T14:00:00.000Z</pubTime>
-        
-        <tag>Config</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.paulsari.cn/2017/08/01/hadoop-deploy/</loc>
-    <lastmod>2017-08-02T16:39:08.000Z</lastmod>
+    <lastmod>2017-08-02T17:04:44.000Z</lastmod>
     <data>
         <display>
         <title>配置Hadoop分布式集群</title>

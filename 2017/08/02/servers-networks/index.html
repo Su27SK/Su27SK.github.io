@@ -102,7 +102,7 @@
 <meta property="og:description" content="主要目标只有一个IP可以上网，让整个服务器集群可以访问外网，每台服务器都可以独立上网。 现有条件 只有一根可以上内网的网线（该内网是高研院内网，可以上网） 一台交换机 4台高性能服务器，每台服务器有两个网口  主要网络架构设计 一台服务器为master节点 另外三台服务器分别为slave1,slave2,slave3 四台服务器安装的操作系统皆为unbuntu server  IP 分布 mast">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://otyvv2xli.bkt.clouddn.com/static/images/Servers.png">
-<meta property="og:updated_time" content="2017-08-02T17:04:42.000Z">
+<meta property="og:updated_time" content="2017-08-02T18:38:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="4台服务器集群网络配置">
 <meta name="twitter:description" content="主要目标只有一个IP可以上网，让整个服务器集群可以访问外网，每台服务器都可以独立上网。 现有条件 只有一根可以上内网的网线（该内网是高研院内网，可以上网） 一台交换机 4台高性能服务器，每台服务器有两个网口  主要网络架构设计 一台服务器为master节点 另外三台服务器分别为slave1,slave2,slave3 四台服务器安装的操作系统皆为unbuntu server  IP 分布 mast">
@@ -352,9 +352,7 @@
 <li>slave4节点eth0:  192.168.223.4</li>
 </ol>
 <h3 id="网络分布示意图"><a href="#网络分布示意图" class="headerlink" title="网络分布示意图"></a>网络分布示意图</h3><img title="四台服务器网络相关配置" src="http://otyvv2xli.bkt.clouddn.com/static/images/Servers.png">
-<h3 id="具体服务器配置"><a href="#具体服务器配置" class="headerlink" title="具体服务器配置"></a>具体服务器配置</h3><ol>
-<li>master节点配置<br>ip配置,修改 /etc/network/interfaces 文件， 配置文件如下：</li>
-</ol>
+<h3 id="具体服务器配置"><a href="#具体服务器配置" class="headerlink" title="具体服务器配置"></a>具体服务器配置</h3><h4 id="master节点配置"><a href="#master节点配置" class="headerlink" title="master节点配置"></a>master节点配置</h4><p>ip配置,修改 /etc/network/interfaces 文件， 配置文件如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">auto eth0</div><div class="line">iface eth0 inet static</div><div class="line">address <span class="number">192.168</span><span class="number">.223</span><span class="number">.1</span></div><div class="line">netmask <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span></div><div class="line"></div><div class="line">auto eth1</div><div class="line">iface eth1 inet static </div><div class="line">address <span class="number">10.1</span><span class="number">.8</span><span class="number">.200</span></div><div class="line">netmask <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span></div><div class="line">gateway <span class="number">10.1</span><span class="number">.8</span><span class="number">.254</span></div></pre></td></tr></table></figure>
 <p>网络配置文件修改完之后， /etc/init.d/network restart<br>或者 service network restart<br>如果重启之后还是不行，则重新启动服务器。<br>网络重新启动之后，执行ifconfig命令查看网口配置<br>这时，如果出现网口乱名的问题，即网口名字非eth0,eth1,eth2….<br>则执行如下配置<br>Edit /etc/default/grub and search for the following:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;&quot;</div><div class="line">GRUB_CMDLINE_LINUX=&quot;&quot;</div></pre></td></tr></table></figure></p>
 <p>Add biosdevname=0 to the 2 lines:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;biosdevname=0&quot;</div><div class="line">GRUB_CMDLINE_LINUX=&quot;biosdevname=0&quot;</div></pre></td></tr></table></figure></p>
@@ -367,12 +365,9 @@
 <p>iptables -F 命令是删除原有的路由配置（这条命令不要随意操作，如果你原来的配置是iptables -P INPUT DROP, 那么你的远程连接很有可能断开）<br>正确查看路由的命令是:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo iptables -L -n</div></pre></td></tr></table></figure></p>
 <p>如果sudo iptalbes -F 这条命令无效，则改换成下面这条命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo iptalbes -F  -t  nat</div></pre></td></tr></table></figure></p>
 <p>但是以上配置都是临时配置，一旦服务器关机就失效了，所以，需要将以上修改写入 /etc/rc.local文件中。</p>
-<ol>
-<li>slave节点配置<br>slave节点配置基本相同，如以下slave2节点配置<br>修改 /etc/network/interfaces如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">auto lo</div><div class="line">iface lo inet loopback</div><div class="line"></div><div class="line">auto eth0</div><div class="line">iface eth0 inet static</div><div class="line">address 192.168.223.2</div><div class="line">netmask 255.255.255.0</div><div class="line">gateway 192.168.223.1</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<h4 id="slave节点配置"><a href="#slave节点配置" class="headerlink" title="slave节点配置"></a>slave节点配置</h4><p>slave节点配置基本相同，如以下slave2节点配置<br>修改 /etc/network/interfaces如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">auto lo</div><div class="line">iface lo inet loopback</div><div class="line"></div><div class="line">auto eth0</div><div class="line">iface eth0 inet static</div><div class="line">address 192.168.223.2</div><div class="line">netmask 255.255.255.0</div><div class="line">gateway 192.168.223.1</div></pre></td></tr></table></figure></p>
 <p>配置文件写好之后，执行生效如前所述<br>其他slave节点ip配置全部按照该节点配置。</p>
-<p>###配置完成之后<br>所有节点配置完成之后，在每台服务器上配置ssh-server，unbutun server版本是默认配置ssh-client版本<br>对每个服务器执行以下命令(这个时候每台服务器是联网的)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get intall update</div></pre></td></tr></table></figure></p>
+<h3 id="配置完成之后"><a href="#配置完成之后" class="headerlink" title="配置完成之后"></a>配置完成之后</h3><p>所有节点配置完成之后，在每台服务器上配置ssh-server，unbutun server版本是默认配置ssh-client版本<br>对每个服务器执行以下命令(这个时候每台服务器是联网的)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get intall update</div></pre></td></tr></table></figure></p>
 <p>为了提高下载时的速度，需要修改下载源<br>进入/etc/apt/sources.list,将所有<br><a href="http://cn.archive.ubuntu.com/ubuntu/" target="_blank" rel="external">http://cn.archive.ubuntu.com/ubuntu/</a><br>改成<br><a href="http://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="external">http://mirrors.ustc.edu.cn/ubuntu/</a><br>中科大的下载源速度还是很快的.</p>
 <p>更换源之后，执行以下两条命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo rm /var/lib/apt/lists/* -vf</div><div class="line">sudo apt-get update</div></pre></td></tr></table></figure></p>
 <p>将缓存的信息去掉</p>
@@ -585,7 +580,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要目标"><span class="nav-number">1.</span> <span class="nav-text">主要目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#现有条件"><span class="nav-number">2.</span> <span class="nav-text">现有条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要网络架构设计"><span class="nav-number">3.</span> <span class="nav-text">主要网络架构设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-分布"><span class="nav-number">4.</span> <span class="nav-text">IP 分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络分布示意图"><span class="nav-number">5.</span> <span class="nav-text">网络分布示意图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体服务器配置"><span class="nav-number">6.</span> <span class="nav-text">具体服务器配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#额外配置"><span class="nav-number">7.</span> <span class="nav-text">额外配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要目标"><span class="nav-number">1.</span> <span class="nav-text">主要目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#现有条件"><span class="nav-number">2.</span> <span class="nav-text">现有条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要网络架构设计"><span class="nav-number">3.</span> <span class="nav-text">主要网络架构设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-分布"><span class="nav-number">4.</span> <span class="nav-text">IP 分布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络分布示意图"><span class="nav-number">5.</span> <span class="nav-text">网络分布示意图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体服务器配置"><span class="nav-number">6.</span> <span class="nav-text">具体服务器配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#master节点配置"><span class="nav-number">6.1.</span> <span class="nav-text">master节点配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#slave节点配置"><span class="nav-number">6.2.</span> <span class="nav-text">slave节点配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置完成之后"><span class="nav-number">7.</span> <span class="nav-text">配置完成之后</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#额外配置"><span class="nav-number">8.</span> <span class="nav-text">额外配置</span></a></li></ol></div>
             
 
           </div>
@@ -631,6 +626,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
         
       </div>
