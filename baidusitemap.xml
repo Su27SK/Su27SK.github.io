@@ -3,14 +3,13 @@
 
 
     
-    
   <url>
-    <loc>http://www.paulsari.cn/2017/08/02/servers-networks/</loc>
-    <lastmod>2017-08-02T19:10:07.000Z</lastmod>
+    <loc>http://www.paulsari.cn/2017/08/02/virtualHost/</loc>
+    <lastmod>2017-08-04T16:21:07.000Z</lastmod>
     <data>
         <display>
-        <title>4台服务器集群网络配置</title>
-        <pubTime>2017-08-02T14:00:00.000Z</pubTime>
+        <title>配置虚拟主机</title>
+        <pubTime>2017-08-02T12:00:00.000Z</pubTime>
         
         <tag>Config</tag>
          
@@ -21,13 +20,14 @@
     </url>
 
     
+    
   <url>
-    <loc>http://www.paulsari.cn/2017/08/02/virtualHost/</loc>
-    <lastmod>2017-08-02T19:08:20.000Z</lastmod>
+    <loc>http://www.paulsari.cn/2017/08/02/servers-networks/</loc>
+    <lastmod>2017-08-02T19:10:07.000Z</lastmod>
     <data>
         <display>
-        <title>配置虚拟主机</title>
-        <pubTime>2017-08-02T12:00:00.000Z</pubTime>
+        <title>4台服务器集群网络配置</title>
+        <pubTime>2017-08-02T14:00:00.000Z</pubTime>
         
         <tag>Config</tag>
          
