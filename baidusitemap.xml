@@ -3,6 +3,27 @@
 
 
     
+  <url>
+    <loc>http://www.paulsari.cn/2017/08/01/hadoop-deploy/</loc>
+    <lastmod>2017-08-06T07:56:27.000Z</lastmod>
+    <data>
+        <display>
+        <title>配置Hadoop分布式集群</title>
+        <pubTime>2017-08-01T10:00:00.000Z</pubTime>
+        
+        <tag>BigData</tag>
+         
+        <tag>Hadoop</tag>
+         
+        <tag>Config</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://www.paulsari.cn/2017/08/02/virtualHost/</loc>
@@ -29,27 +50,6 @@
         <title>4台服务器集群网络配置</title>
         <pubTime>2017-08-02T14:00:00.000Z</pubTime>
         
-        <tag>Config</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.paulsari.cn/2017/08/01/hadoop-deploy/</loc>
-    <lastmod>2017-08-02T17:04:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>配置Hadoop分布式集群</title>
-        <pubTime>2017-08-01T10:00:00.000Z</pubTime>
-        
-        <tag>BigData</tag>
-         
-        <tag>Hadoop</tag>
-         
         <tag>Config</tag>
          
          
