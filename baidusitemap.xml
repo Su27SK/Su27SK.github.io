@@ -5,10 +5,10 @@
     
   <url>
     <loc>http://www.paulsari.cn/2017/08/01/hadoop-deploy/</loc>
-    <lastmod>2017-08-06T08:20:19.000Z</lastmod>
+    <lastmod>2017-08-07T09:38:38.000Z</lastmod>
     <data>
         <display>
-        <title>配置Hadoop分布式集群</title>
+        <title>配置、部署Hadoop分布式集群</title>
         <pubTime>2017-08-01T10:00:00.000Z</pubTime>
         
         <tag>BigData</tag>
@@ -16,6 +16,27 @@
         <tag>Hadoop</tag>
          
         <tag>Config</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.paulsari.cn/2017/08/07/spark-deploy/</loc>
+    <lastmod>2017-08-07T09:38:37.000Z</lastmod>
+    <data>
+        <display>
+        <title>配置、部署Spark分布式集群</title>
+        <pubTime>2017-08-07T09:30:00.000Z</pubTime>
+        
+        <tag>BigData</tag>
+         
+        <tag>Config</tag>
+         
+        <tag>Spark</tag>
          
          
            

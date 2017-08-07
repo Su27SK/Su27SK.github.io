@@ -1,3 +1,4 @@
+http://www.paulsari.cn/2017/08/07/spark-deploy/
 http://www.paulsari.cn/2017/08/02/servers-networks/
 http://www.paulsari.cn/2017/08/02/virtualHost/
 http://www.paulsari.cn/2017/08/01/hadoop-deploy/
