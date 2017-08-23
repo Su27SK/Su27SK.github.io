@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.paulsari.cn/about/index.html</loc>
+    
+    <lastmod>2017-08-23T15:13:40.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.paulsari.cn/2017/08/08/ali-test/</loc>
     
     <lastmod>2017-08-22T11:48:15.000Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://www.paulsari.cn/2017/08/07/spark-deploy/</loc>
     
     <lastmod>2017-08-07T09:38:37.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.paulsari.cn/about/index.html</loc>
-    
-    <lastmod>2017-08-04T16:26:22.000Z</lastmod>
     
   </url>
   
