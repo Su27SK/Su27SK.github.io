@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.paulsari.cn/2017/08/27/dajiang2/</loc>
+    
+    <lastmod>2017-08-28T02:46:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.paulsari.cn/tags/index.html</loc>
     
     <lastmod>2017-08-28T02:24:43.000Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://www.paulsari.cn/2017/08/01/hadoop-deploy/</loc>
     
     <lastmod>2017-08-28T02:05:05.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.paulsari.cn/2017/08/27/dajiang2/</loc>
-    
-    <lastmod>2017-08-28T02:04:47.000Z</lastmod>
     
   </url>
   
