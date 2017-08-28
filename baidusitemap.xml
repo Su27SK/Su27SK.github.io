@@ -3,69 +3,10 @@
 
 
     
-  <url>
-    <loc>http://www.paulsari.cn/2017/08/27/dajiang2/</loc>
-    <lastmod>2017-08-28T01:55:11.000Z</lastmod>
-    <data>
-        <display>
-        <title>大疆2018校招软件岗位笔试题目(求有效工作时间)</title>
-        <pubTime>2017-08-27T12:37:00.000Z</pubTime>
-        
-        <tag>Interview</tag>
-         
-        <tag>Algorithm</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>http://www.paulsari.cn/2017/08/08/ali-test/</loc>
-    <lastmod>2017-08-22T11:48:15.000Z</lastmod>
-    <data>
-        <display>
-        <title>阿里内推测试题目(关于生兔子问题)</title>
-        <pubTime>2017-08-08T13:12:00.000Z</pubTime>
-        
-        <tag>Interview</tag>
-         
-        <tag>Algorithm</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.paulsari.cn/2017/08/01/hadoop-deploy/</loc>
-    <lastmod>2017-08-07T09:38:38.000Z</lastmod>
-    <data>
-        <display>
-        <title>配置、部署Hadoop分布式集群</title>
-        <pubTime>2017-08-01T10:00:00.000Z</pubTime>
-        
-        <tag>BigData</tag>
-         
-        <tag>Hadoop</tag>
-         
-        <tag>Config</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://www.paulsari.cn/2017/08/07/spark-deploy/</loc>
-    <lastmod>2017-08-07T09:38:37.000Z</lastmod>
+    <lastmod>2017-08-28T02:06:11.000Z</lastmod>
     <data>
         <display>
         <title>配置、部署Spark分布式集群</title>
@@ -79,6 +20,9 @@
          
          
            
+             
+              <breadCrumb title="配置" url="http://www.paulsari.cn/categories/%E9%85%8D%E7%BD%AE/"/>
+          
         </display>
     </data>
     </url>
@@ -86,7 +30,7 @@
     
   <url>
     <loc>http://www.paulsari.cn/2017/08/02/virtualHost/</loc>
-    <lastmod>2017-08-04T16:21:07.000Z</lastmod>
+    <lastmod>2017-08-28T02:06:09.000Z</lastmod>
     <data>
         <display>
         <title>配置虚拟主机</title>
@@ -96,6 +40,9 @@
          
          
            
+             
+              <breadCrumb title="配置" url="http://www.paulsari.cn/categories/%E9%85%8D%E7%BD%AE/"/>
+          
         </display>
     </data>
     </url>
@@ -103,7 +50,7 @@
     
   <url>
     <loc>http://www.paulsari.cn/2017/08/02/servers-networks/</loc>
-    <lastmod>2017-08-02T19:10:07.000Z</lastmod>
+    <lastmod>2017-08-28T02:05:27.000Z</lastmod>
     <data>
         <display>
         <title>4台服务器集群网络配置</title>
@@ -113,10 +60,83 @@
          
          
            
+             
+              <breadCrumb title="配置" url="http://www.paulsari.cn/categories/%E9%85%8D%E7%BD%AE/"/>
+          
         </display>
     </data>
     </url>
 
+    
+  <url>
+    <loc>http://www.paulsari.cn/2017/08/01/hadoop-deploy/</loc>
+    <lastmod>2017-08-28T02:05:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>配置、部署Hadoop分布式集群</title>
+        <pubTime>2017-08-01T10:00:00.000Z</pubTime>
+        
+        <tag>BigData</tag>
+         
+        <tag>Hadoop</tag>
+         
+        <tag>Config</tag>
+         
+         
+           
+             
+              <breadCrumb title="配置" url="http://www.paulsari.cn/categories/%E9%85%8D%E7%BD%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.paulsari.cn/2017/08/27/dajiang2/</loc>
+    <lastmod>2017-08-28T02:04:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>大疆2018校招软件岗位笔试题目(求有效工作时间)</title>
+        <pubTime>2017-08-27T12:37:00.000Z</pubTime>
+        
+        <tag>Interview</tag>
+         
+        <tag>Algorithm</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔试" url="http://www.paulsari.cn/categories/%E7%AC%94%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.paulsari.cn/2017/08/08/ali-test/</loc>
+    <lastmod>2017-08-28T02:04:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>阿里内推测试题目(关于生兔子问题)</title>
+        <pubTime>2017-08-08T13:12:00.000Z</pubTime>
+        
+        <tag>Interview</tag>
+         
+        <tag>Algorithm</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔试" url="http://www.paulsari.cn/categories/%E7%AC%94%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
     
   <url>
     <loc>http://www.paulsari.cn/2017/07/22/hello-world/</loc>
@@ -134,5 +154,4 @@
     </data>
     </url>
 
-    
 </urlset>
